@@ -1,4 +1,5 @@
 import http from 'http';
+import formidable from 'formidable';
 
 const hostname = '127.0.0.1';
 const port = 3000;
@@ -14,9 +15,24 @@ const server = http.createServer((req, res) => {
         res.end(JSON.stringify({message: 'Server is alive!'}) );
     }
 
-    else if (req.method == 'POST' && req.url == '/file') {
-        res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end('You\'ve requested a file');
+    else if (req.method === 'POST' && req.url === '/file') {
+        let filePath = '';
+        const form = formidable({});
+
+        form.parse(req, (err, fields, files) => {
+            if (err) {
+                res.writeHead(400);
+                res.end(JSON.stringify({ error: 'Upload when uploading file' }));
+                return;
+            }
+
+            console.log('Arquivo recebido:', files.file);
+            filePath = files.file[0].filePath;
+            res.writeHead(200);
+            res.end(JSON.stringify({ message: 'Upload feito com sucesso!'}));
+        });
+
+        console.log(filePath)
     }
 
     else {
