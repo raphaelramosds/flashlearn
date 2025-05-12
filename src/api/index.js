@@ -1,10 +1,11 @@
 import http from 'http';
 import formidable from 'formidable';
+import fs from 'fs/promises';
 
 const hostname = '127.0.0.1';
 const port = 3000;
 
-const server = http.createServer((req, res) => {
+const server = http.createServer(async (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
@@ -16,23 +17,33 @@ const server = http.createServer((req, res) => {
     }
 
     else if (req.method === 'POST' && req.url === '/file') {
-        let filePath = '';
         const form = formidable({});
+        let filepath;
+        let fields;
+        let files;
+        
+        try {
+            [fields, files] = await form.parse(req);
+        } catch (err) {
+            console.error(err);
+            res.writeHead(400, { 'Content-Type' : 'text/plain' });
+            res.end(String(err));
+        }
 
-        form.parse(req, (err, fields, files) => {
-            if (err) {
-                res.writeHead(400);
-                res.end(JSON.stringify({ error: 'Upload when uploading file' }));
-                return;
-            }
+        if (files.file) {
+            filepath = files.file[0].filepath;
+        }
 
-            console.log('Arquivo recebido:', files.file);
-            filePath = files.file[0].filePath;
-            res.writeHead(200);
-            res.end(JSON.stringify({ message: 'Upload feito com sucesso!'}));
-        });
+        try {
+            const data = await fs.readFile(filepath, {encoding: 'utf8'});
+            console.log('File content:');
+            console.log(data);
+        } catch (err) {
+            console.log(err);
+        }
 
-        console.log(filePath)
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ message: 'File upload successfully'}, null, 2));
     }
 
     else {
