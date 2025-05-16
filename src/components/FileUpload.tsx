@@ -13,7 +13,8 @@ function FileUpload() {
 
     return (
         <>
-            <label 
+            <label
+                className="btn" 
                 htmlFor="file-upload"
                 style={{cursor: "pointer"}}
             >Importar</label>

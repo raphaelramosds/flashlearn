@@ -3,3 +3,10 @@
 * {
     box-sizing: border-box;
 }
+
+.btn {
+    padding: 5px;
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 5px;
+}
