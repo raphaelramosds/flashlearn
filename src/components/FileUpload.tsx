@@ -1,8 +1,8 @@
 function FileUpload() {
 
-    let fileReader : FileReader;
+    let fileReader: FileReader;
 
-    const handleFileChosen = (file : File) => {
+    const handleFileChosen = (file: File) => {
         fileReader = new FileReader();
         fileReader.onloadend = (e) => {
             const content = fileReader.result;
@@ -13,8 +13,23 @@ function FileUpload() {
 
     return (
         <>
-            <p>File handler</p>
-            <input type="file" accept=".txt" onChange={e => handleFileChosen(e.target.files[0])}/>
+            <label 
+                htmlFor="file-upload"
+                className="rt-reset rt-BaseButton rt-r-size-2 rt-variant-solid rt-Button"
+                style={{cursor: "pointer"}}
+            >Importar</label>
+            <input
+                id="file-upload"
+                type="file"
+                accept=".txt"
+                onChange={e => {
+                    const files = e.target.files;
+                    if (files && files[0]) {
+                        handleFileChosen(files[0]);
+                    }
+                }}
+                style={{ display: "none" }}
+            />
         </>
     );
 }
