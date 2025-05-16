@@ -14,9 +14,8 @@ function FileUpload() {
     return (
         <>
             <label
-                className="btn" 
+                className="btn btn-primary-outline"
                 htmlFor="file-upload"
-                style={{cursor: "pointer"}}
             >Importar</label>
             <input
                 id="file-upload"

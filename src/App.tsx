@@ -1,38 +1,26 @@
-import { Dialog } from 'radix-ui';
 import './App.css'
-
-import { Text } from './components/Text';
-import { Form } from './components/Form';
+import FileUpload from './components/FileUpload'
+import { FormDialog } from './components/FormDialog'
 
 function App() {
   return (
     <>
-      <div className='rounded-xl my-5 p-5 bg-[#F7F7FF] min-h-[500px] flex flex-col justify-between'>
-        <div>
-          <Text content="Pergunta do flashcard" />
+      <div className='rounded-xl my-5 p-5 bg-[#F7F7FF] min-h-[300px] flex flex-col justify-between'>
+        <div className='flex-1 flex flex-col justify-center text-center'>
+          <div>
+            O que é um substantivo concreto?
+          </div>
         </div>
-        <div className='mt-5'>
+        <div className='mt-5 flex justify-center align_center'>
           <button type="button" className="btn btn-primary">Ver resposta</button>
-          <button type="button" className="btn btn-primary-outline mx-3">Editar</button>
-          <Dialog.Root>
-            <Dialog.Trigger asChild>
-              <button type="button" className="btn btn-primary-outline">Novo</button>
-            </Dialog.Trigger>
-            <Dialog.Portal>
-              <Dialog.Overlay className="DialogOverlay" />
-              <Dialog.Content className="DialogContent">
-                {/* <Dialog.Title className="DialogTitle">Novo flashcard</Dialog.Title> */}
-                {/* <Dialog.Description className="DialogDescription">
-                  Make changes to your profile here. Click save when you're done.
-                </Dialog.Description> */}
-                <Form>
-                  <Dialog.Close asChild>
-                    <button className="btn" aria-label="Close">Cancelar</button>
-                  </Dialog.Close>
-                </Form>
-              </Dialog.Content>
-            </Dialog.Portal>
-          </Dialog.Root>
+          <FormDialog>
+            <button type="button" className="btn btn-primary-outline mx-3">Editar</button>
+          </FormDialog>
+          <FormDialog>
+            <button type="button" className="btn btn-primary-outline mr-3">Novo</button>
+          </FormDialog>
+          <FileUpload />
+          <button type="button" className="btn btn-primary-outline ml-3">Exportar</button>
         </div>
       </div>
     </>
