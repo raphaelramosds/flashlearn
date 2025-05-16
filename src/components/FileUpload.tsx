@@ -15,7 +15,6 @@ function FileUpload() {
         <>
             <label 
                 htmlFor="file-upload"
-                className="rt-reset rt-BaseButton rt-r-size-2 rt-variant-solid rt-Button"
                 style={{cursor: "pointer"}}
             >Importar</label>
             <input

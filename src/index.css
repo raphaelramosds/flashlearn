@@ -1,1 +1,5 @@
-/* Silence is golden */
+@import "tailwindcss";
+
+* {
+    box-sizing: border-box;
+}

@@ -1,11 +1,10 @@
-import { Box, Button, Card, Flex, Grid, Text, TextArea } from '@radix-ui/themes'
 import './App.css'
-import FileUpload from './components/FileUpload'
+import FileUpload from './components/FileUpload';
 
 function App() {
   return (
     <>
-      <Flex direction="column" gap="3" align="center">
+      {/* <Flex direction="column" gap="3" align="center">
         <Box width="480px">
           <Card size="2">
             <Flex direction="column" gap="3">
@@ -13,14 +12,14 @@ function App() {
                 <Text as="div" weight="bold" size="2" mb="1">
                   Pergunta
                 </Text>
-                <TextArea placeholder="Escreva a pergunta" />
+                <TextArea/>
               </Grid>
 
               <Grid gap="1">
                 <Text as="div" weight="bold" size="2" mb="1">
                   Resposta
                 </Text>
-                <TextArea placeholder="Escreva a reposta" />
+                <TextArea/>
               </Grid>
 
               <Grid columns="1" gap="2">
@@ -46,7 +45,7 @@ function App() {
             </Flex>
           </Card>
         </Box>
-      </Flex>
+      </Flex> */}
     </>
   )
 }
