@@ -1,36 +1,38 @@
+import { Dialog } from 'radix-ui';
 import './App.css'
 
-import FileUpload from './components/FileUpload';
-
-import { Button } from './components/Button';
 import { Text } from './components/Text';
-import { TextArea } from './components/TextArea';
+import { Form } from './components/Form';
 
 function App() {
   return (
     <>
-      <div className='border rounded p-5'>
+      <div className='rounded-xl my-5 p-5 bg-[#F7F7FF] min-h-[500px] flex flex-col justify-between'>
         <div>
-          <TextArea label="Pergunta"/>
-        </div>
-        <div className='my-5'>
-          <TextArea label="Resposta"/>
-        </div>
-        <div className='flex items-center'>
-          <div>
-            <Button title="Salvar"/>
-          </div>
-          <div className='ml-3'>
-            <FileUpload />
-          </div>
-        </div>
-      </div>
-      <div className='border rounded my-5 p-5'>
-        <div>
-          <Text content="Pergunta do flashcard"/>
+          <Text content="Pergunta do flashcard" />
         </div>
         <div className='mt-5'>
-          <Button title="Ver resposta"/>
+          <button type="button" className="btn btn-primary">Ver resposta</button>
+          <button type="button" className="btn btn-primary-outline mx-3">Editar</button>
+          <Dialog.Root>
+            <Dialog.Trigger asChild>
+              <button type="button" className="btn btn-primary-outline">Novo</button>
+            </Dialog.Trigger>
+            <Dialog.Portal>
+              <Dialog.Overlay className="DialogOverlay" />
+              <Dialog.Content className="DialogContent">
+                {/* <Dialog.Title className="DialogTitle">Novo flashcard</Dialog.Title> */}
+                {/* <Dialog.Description className="DialogDescription">
+                  Make changes to your profile here. Click save when you're done.
+                </Dialog.Description> */}
+                <Form>
+                  <Dialog.Close asChild>
+                    <button className="btn" aria-label="Close">Cancelar</button>
+                  </Dialog.Close>
+                </Form>
+              </Dialog.Content>
+            </Dialog.Portal>
+          </Dialog.Root>
         </div>
       </div>
     </>
