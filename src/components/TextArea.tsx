@@ -1,9 +1,15 @@
-export function TextArea({ value, label }: { label: String, value : String }) {
+export function TextArea({ value, label, name, onChangeEvent }: { label: String, value: string, name: string, onChangeEvent }) {
     return (
         <>
-            <label className="text-xs" htmlFor="story">{label}</label>
-            <textarea rows={5} className="shadow-sm block w-full rounded mt-2 p-1" id="story" name="story">
-                {value}
+            <label className="text-xs" htmlFor={name}>{label}</label>
+            <textarea 
+                rows={5}
+                className="shadow-sm block w-full rounded mt-2 p-1"
+                id={name}
+                name={name}
+                defaultValue={value}
+                onChange={onChangeEvent}
+            >
             </textarea>
         </>
     );

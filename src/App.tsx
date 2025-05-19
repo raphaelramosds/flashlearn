@@ -25,7 +25,7 @@ function App() {
     setFlipped(true);
   }
 
-  function getNextCard () {
+  function getNextCard() {
     let newCard = cards[Math.floor(Math.random() * cards.length)];
     setCurrentCard(newCard);
     setFlipped(false);
@@ -41,13 +41,24 @@ function App() {
           </div>
         </div>
         <div className='mt-5 flex justify-center align_center'>
-          {!flipped 
-            ? <button type="button" className="btn btn-primary" onClick={flipCard}>Ver resposta</button> 
+          {!flipped
+            ? <button type="button" className="btn btn-primary" onClick={flipCard}>Ver resposta</button>
             : <button type="button" className="btn btn-primary" onClick={getNextCard}>Próximo</button>}
-          <FormDialog card={currentCard}>
+          <FormDialog
+            card={currentCard}
+            cards={cards}
+            setCurrentCard={setCurrentCard}
+            setContent={setContent}
+            setCards={setCards}
+            setFlipped={setFlipped}>
             <button type="button" className="btn btn-primary-outline mx-3">Editar</button>
           </FormDialog>
-          <FormDialog>
+          <FormDialog
+            cards={cards}
+            setCurrentCard={setCurrentCard}
+            setContent={setContent}
+            setCards={setCards}
+            setFlipped={setFlipped}>
             <button type="button" className="btn btn-primary-outline mr-3">Novo</button>
           </FormDialog>
           <FileUpload />

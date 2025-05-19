@@ -1,17 +1,50 @@
-import { type ComponentProps, type ReactNode } from "react";
+import { useCallback, useState, type ComponentProps, type ReactNode } from "react";
 
-import { Dialog } from 'radix-ui';
+import { Dialog, VisuallyHidden } from 'radix-ui';
 import { TextArea } from "./TextArea";
+
+interface Card {
+    front: string,
+    back: string
+}
 
 interface FormDialogProps {
     children: ReactNode,
-    card ?: {
-        front: string,
-        back: string
-    }
+    cards: Card[],
+    card?: Card,
+    setCurrentCard: Function,
+    setContent: Function,
+    setCards: Function,
+    setFlipped: Function
 }
 
-export function FormDialog({ children, card }: FormDialogProps) {
+export function FormDialog({
+    children,
+    cards,
+    card,
+    setCurrentCard,
+    setContent,
+    setCards,
+    setFlipped }: FormDialogProps) {
+
+    const [cardData, setCardData] = useState<Card>(card ?? { front: '', back: '' });
+
+    const handleSave = (e) => {
+        let newCards = cards.slice(),
+            idx = cards.findIndex((c) => c.back == card?.back && c.front == card?.front);
+
+        if (idx > 0) {
+            newCards[idx] = cardData;
+        } else {
+            newCards.push(cardData);
+        }
+
+        setCurrentCard(cardData);
+        setContent(cardData?.front);
+        setCards(newCards);
+        setFlipped(false);
+    };
+
     return (
         <Dialog.Root>
             <Dialog.Trigger asChild>
@@ -20,28 +53,46 @@ export function FormDialog({ children, card }: FormDialogProps) {
             <Dialog.Portal>
                 <Dialog.Overlay className="DialogOverlay" />
                 <Dialog.Content className="DialogContent">
+                    <VisuallyHidden.Root>
+                        <Dialog.Title className="DialogTitle">Card form</Dialog.Title>
+                        <Dialog.Description className="DialogDescription">
+                            Displays a form for creating/updating a flashcard.
+                        </Dialog.Description>
+                    </VisuallyHidden.Root>
                     <div className='p-5'>
-                        <div>
-                            <TextArea label="PERGUNTA" value={card?.front ?? ''}/>
-                        </div>
-                        <div className='my-5'>
-                            <TextArea label="RESPOSTA" value={card?.back ?? ''}/>
-                        </div>
-                        <div className='flex items-center'>
+                        <form>
                             <div>
-                                <button type="button" className="btn btn-primary-none">Salvar</button>
+                                <TextArea
+                                    name="front"
+                                    label="PERGUNTA"
+                                    value={card?.front ?? ''}
+                                    onChangeEvent={(e) => setCardData({ ...cardData, front: e.target.value })}
+                                />
                             </div>
-                            <div>
-                                <Dialog.Close asChild>
-                                    <button className="btn" aria-label="Close">Cancelar</button>
-                                </Dialog.Close>
+                            <div className='my-5'>
+                                <TextArea
+                                    name="back"
+                                    label="RESPOSTA"
+                                    value={card?.back ?? ''}
+                                    onChangeEvent={(e) => setCardData({ ...cardData, back: e.target.value })}
+                                />
                             </div>
-                        </div>
+                            <div className='flex items-center'>
+                                <div>
+                                    <button type="button" className="btn btn-primary-none" onClick={handleSave}>Salvar</button>
+                                </div>
+                                <div>
+                                    <Dialog.Close asChild>
+                                        <button type="button" className="btn" aria-label="Close">Cancelar</button>
+                                    </Dialog.Close>
+                                </div>
+                            </div>
+
+                        </form>
                     </div>
                 </Dialog.Content>
             </Dialog.Portal>
         </Dialog.Root>
     );
-
 }
 
