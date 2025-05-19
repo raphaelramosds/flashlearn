@@ -1,9 +1,17 @@
-import { type ReactNode } from "react";
+import { type ComponentProps, type ReactNode } from "react";
 
 import { Dialog } from 'radix-ui';
 import { TextArea } from "./TextArea";
 
-export function FormDialog({ children }: { children: ReactNode }) {
+interface FormDialogProps {
+    children: ReactNode,
+    card ?: {
+        front: string,
+        back: string
+    }
+}
+
+export function FormDialog({ children, card }: FormDialogProps) {
     return (
         <Dialog.Root>
             <Dialog.Trigger asChild>
@@ -14,10 +22,10 @@ export function FormDialog({ children }: { children: ReactNode }) {
                 <Dialog.Content className="DialogContent">
                     <div className='p-5'>
                         <div>
-                            <TextArea label="PERGUNTA" />
+                            <TextArea label="PERGUNTA" value={card?.front ?? ''}/>
                         </div>
                         <div className='my-5'>
-                            <TextArea label="RESPOSTA" />
+                            <TextArea label="RESPOSTA" value={card?.back ?? ''}/>
                         </div>
                         <div className='flex items-center'>
                             <div>
