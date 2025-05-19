@@ -1,4 +1,6 @@
-export function TextArea({ value, label, name, onChangeEvent }: { label: String, value: string, name: string, onChangeEvent }) {
+import type React from "react";
+
+export function TextArea({ value, label, name, onChangeEvent }: { label: String, value: string, name: string, onChangeEvent : React.ChangeEventHandler }) {
     return (
         <>
             <label className="text-xs" htmlFor={name}>{label}</label>

@@ -4,7 +4,7 @@ function FileUpload() {
 
     const handleFileChosen = (file: File) => {
         fileReader = new FileReader();
-        fileReader.onloadend = (e) => {
+        fileReader.onloadend = () => {
             const content = fileReader.result;
             console.log(content);
         };

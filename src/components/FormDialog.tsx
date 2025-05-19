@@ -26,7 +26,7 @@ export function FormDialog({
 
     const [cardData, setCardData] = useState<Card>(card ?? { front: '', back: '' });
 
-    const handleSave = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const handleSave = () => {
         let newCards = cards.slice(),
             idx = cards.findIndex((c) => c.back == card?.back && c.front == card?.front);
 
