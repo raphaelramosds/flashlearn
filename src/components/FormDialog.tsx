@@ -1,12 +1,9 @@
-import { useCallback, useState, type ComponentProps, type ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 
 import { Dialog, VisuallyHidden } from 'radix-ui';
 import { TextArea } from "./TextArea";
+import type { Card } from "../@types/Card";
 
-interface Card {
-    front: string,
-    back: string
-}
 
 interface FormDialogProps {
     children: ReactNode,
@@ -29,7 +26,7 @@ export function FormDialog({
 
     const [cardData, setCardData] = useState<Card>(card ?? { front: '', back: '' });
 
-    const handleSave = (e) => {
+    const handleSave = (e: React.MouseEvent<HTMLButtonElement>) => {
         let newCards = cards.slice(),
             idx = cards.findIndex((c) => c.back == card?.back && c.front == card?.front);
 
@@ -66,7 +63,7 @@ export function FormDialog({
                                     name="front"
                                     label="PERGUNTA"
                                     value={card?.front ?? ''}
-                                    onChangeEvent={(e) => setCardData({ ...cardData, front: e.target.value })}
+                                    onChangeEvent={(e: React.ChangeEvent<HTMLTextAreaElement>) => setCardData({ ...cardData, front: e.target.value })}
                                 />
                             </div>
                             <div className='my-5'>
@@ -74,7 +71,7 @@ export function FormDialog({
                                     name="back"
                                     label="RESPOSTA"
                                     value={card?.back ?? ''}
-                                    onChangeEvent={(e) => setCardData({ ...cardData, back: e.target.value })}
+                                    onChangeEvent={(e: React.ChangeEvent<HTMLTextAreaElement>) => setCardData({ ...cardData, back: e.target.value })}
                                 />
                             </div>
                             <div className='flex items-center'>
@@ -87,7 +84,6 @@ export function FormDialog({
                                     </Dialog.Close>
                                 </div>
                             </div>
-
                         </form>
                     </div>
                 </Dialog.Content>
