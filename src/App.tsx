@@ -34,7 +34,7 @@ function App() {
 
   return (
     <>
-      <div className='rounded-xl my-5 p-5 bg-[#F7F7FF] min-h-[300px] flex flex-col justify-between'>
+      <div className='rounded-xl my-5 p-5 min-h-[300px] flex flex-col justify-between'>
         <div className='flex-1 flex flex-col justify-center text-center'>
           <div>
             {content}
@@ -61,8 +61,8 @@ function App() {
             setFlipped={setFlipped}>
             <button type="button" className="btn btn-primary-outline mr-3">Novo</button>
           </FormDialog>
-          <FileUpload />
-          <button type="button" className="btn btn-primary-outline ml-3">Exportar</button>
+          {/*<FileUpload />*/}
+          {/*<button type="button" className="btn btn-primary-outline ml-3">Exportar</button>*/}
         </div>
       </div>
     </>

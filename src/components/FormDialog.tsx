@@ -1,6 +1,6 @@
-import { useState, type ReactNode } from "react";
+import {useState, useRef, type ReactNode, useEffect} from "react";
 
-import { Dialog, VisuallyHidden } from 'radix-ui';
+import { Toast, Dialog, VisuallyHidden } from 'radix-ui';
 import { TextArea } from "./TextArea";
 import type { Card } from "../@types/Card";
 
@@ -26,6 +26,13 @@ export function FormDialog({
 
     const [cardData, setCardData] = useState<Card>(card ?? { front: '', back: '' });
 
+    const [open, setOpen] = useState(false);
+    const timerRef = useRef(0);
+
+    useEffect(() => {
+        return () => clearTimeout(timerRef.current);
+    }, []);
+
     const handleSave = () => {
         let newCards = cards.slice(),
             idx = cards.findIndex((c) => c.back == card?.back && c.front == card?.front);
@@ -40,6 +47,12 @@ export function FormDialog({
         setContent(cardData?.front);
         setCards(newCards);
         setFlipped(false);
+
+        setOpen(false);
+        window.clearTimeout(timerRef.current);
+        timerRef.current = window.setTimeout(() => {
+            setOpen(true);
+        }, 100);
     };
 
     return (
@@ -76,7 +89,31 @@ export function FormDialog({
                             </div>
                             <div className='flex items-center'>
                                 <div>
-                                    <button type="button" className="btn btn-primary-none" onClick={handleSave}>Salvar</button>
+                                    <Toast.Provider swipeDirection="right">
+                                        <button type="button" className="btn btn-primary" onClick={handleSave}>Salvar</button>
+
+                                        <Toast.Root
+                                            className="ToastRoot"
+                                            open={open}
+                                            onOpenChange={setOpen}
+                                        >
+                                            <Toast.Title className="ToastTitle">
+                                                Flashcard salvo com sucesso
+                                            </Toast.Title>
+                                            <Toast.Description asChild>
+                                            </Toast.Description>
+                                            <Toast.Action
+                                                className="ToastAction"
+                                                asChild
+                                                altText="Close this notification"
+                                            >
+                                                <button className="Button">
+                                                    Ok
+                                                </button>
+                                            </Toast.Action>
+                                        </Toast.Root>
+                                        <Toast.Viewport className="ToastViewport" />
+                                    </Toast.Provider>
                                 </div>
                                 <div>
                                     <Dialog.Close asChild>

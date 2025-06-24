@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="83.662178"
+   height="62.022381"
+   viewBox="0 0 22.135618 16.410088"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1"
+     transform="translate(-22.418388,-17.948948)">
+    <g
+       id="g1"
+       transform="translate(-3.0427083,0.66145834)">
+      <g
+         id="g4">
+        <rect
+           style="fill:#800080;fill-opacity:1;stroke:#800080;stroke-width:0.494453;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+           id="rect1-2-0"
+           width="9.8452501"
+           height="12.865952"
+           x="-33.463352"
+           y="33.546917"
+           transform="rotate(-91.636482)" />
+        <rect
+           style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.425027;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+           id="rect1-2-9-2"
+           width="8.4169016"
+           height="11.119894"
+           x="-32.614101"
+           y="34.117012"
+           transform="matrix(-0.03655678,-0.99933158,0.99978688,-0.02064437,0,0)" />
+      </g>
+      <text
+         xml:space="preserve"
+         style="font-size:5.51405px;font-family:Inter;-inkscape-font-specification:Inter;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.264583;stroke-dasharray:none;stroke-opacity:1"
+         x="-32.696484"
+         y="36.691597"
+         id="text1-5-7-4"
+         transform="rotate(-94.778542,1.2171188,-1.7302119)"><tspan
+           id="tspan1-4-4-8"
+           style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Gill Sans MT';-inkscape-font-specification:'Gill Sans MT Italic';fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.264583;stroke-dasharray:none;stroke-opacity:1"
+           x="-32.696484"
+           y="36.691597">F</tspan></text>
+    </g>
+    <g
+       id="g3">
+      <g
+         id="g2"
+         transform="translate(-3.0427083,0.66145834)">
+        <rect
+           style="fill:#800080;fill-opacity:1;stroke:#800080;stroke-width:0.494453;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+           id="rect1-2"
+           width="9.8452501"
+           height="12.865952"
+           x="12.409221"
+           y="31.524338"
+           transform="rotate(-27.80077)" />
+        <rect
+           style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.425027;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+           id="rect1-2-9"
+           width="8.4169016"
+           height="11.119894"
+           x="13.246832"
+           y="32.461399"
+           transform="matrix(0.88081387,-0.4734627,0.45938154,0.88823904,0,0)" />
+      </g>
+      <text
+         xml:space="preserve"
+         style="font-size:5.51405px;font-family:Inter;-inkscape-font-specification:Inter;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.264583;stroke-dasharray:none;stroke-opacity:1"
+         x="8.1750307"
+         y="40.333691"
+         id="text1-5-7"
+         transform="rotate(-34.778542)"><tspan
+           id="tspan1-4-4"
+           style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Gill Sans MT';-inkscape-font-specification:'Gill Sans MT Italic';fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.264583;stroke-dasharray:none;stroke-opacity:1"
+           x="8.1750307"
+           y="40.333691">F</tspan></text>
+    </g>
+  </g>
+</svg>
