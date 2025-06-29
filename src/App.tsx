@@ -37,7 +37,7 @@ function App() {
         <main>
             <header className="flex items-center justify-between">
                 <div>
-                    <img className="w-50" src="public/flashlearn-white-logo.svg"/>
+                    <img className="w-50" src="flashlearn-white-logo.svg"/>
                 </div>
                 <div>
                     <FormDialog
