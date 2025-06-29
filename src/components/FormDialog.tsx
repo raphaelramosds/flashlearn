@@ -1,8 +1,9 @@
 import {useState, useRef, type ReactNode, useEffect} from "react";
 
-import { Toast, Dialog, VisuallyHidden } from 'radix-ui';
-import { TextArea } from "./TextArea";
-import type { Card } from "../@types/Card";
+import {Toast, Dialog, VisuallyHidden} from 'radix-ui';
+import {TextArea} from "./TextArea";
+import type {Card} from "../@types/Card";
+import {CheckIcon} from "@phosphor-icons/react";
 
 
 interface FormDialogProps {
@@ -16,15 +17,16 @@ interface FormDialogProps {
 }
 
 export function FormDialog({
-    children,
-    cards,
-    card,
-    setCurrentCard,
-    setContent,
-    setCards,
-    setFlipped }: FormDialogProps) {
+                               children,
+                               cards,
+                               card,
+                               setCurrentCard,
+                               setContent,
+                               setCards,
+                               setFlipped
+                           }: FormDialogProps) {
 
-    const [cardData, setCardData] = useState<Card>(card ?? { front: '', back: '' });
+    const [cardData, setCardData] = useState<Card>(card ?? {front: '', back: ''});
 
     const [open, setOpen] = useState(false);
     const timerRef = useRef(0);
@@ -61,8 +63,8 @@ export function FormDialog({
                 {children}
             </Dialog.Trigger>
             <Dialog.Portal>
-                <Dialog.Overlay className="DialogOverlay" />
-                <Dialog.Content className="DialogContent">
+                <Dialog.Overlay className="DialogOverlay"/>
+                <Dialog.Content className="DialogContent bg-black-soft text-white">
                     <VisuallyHidden.Root>
                         <Dialog.Title className="DialogTitle">Card form</Dialog.Title>
                         <Dialog.Description className="DialogDescription">
@@ -76,7 +78,10 @@ export function FormDialog({
                                     name="front"
                                     label="PERGUNTA"
                                     value={card?.front ?? ''}
-                                    onChangeEvent={(e: React.ChangeEvent<HTMLTextAreaElement>) => setCardData({ ...cardData, front: e.target.value })}
+                                    onChangeEvent={(e: React.ChangeEvent<HTMLTextAreaElement>) => setCardData({
+                                        ...cardData,
+                                        front: e.target.value
+                                    })}
                                 />
                             </div>
                             <div className='my-5'>
@@ -84,13 +89,21 @@ export function FormDialog({
                                     name="back"
                                     label="RESPOSTA"
                                     value={card?.back ?? ''}
-                                    onChangeEvent={(e: React.ChangeEvent<HTMLTextAreaElement>) => setCardData({ ...cardData, back: e.target.value })}
+                                    onChangeEvent={(e: React.ChangeEvent<HTMLTextAreaElement>) => setCardData({
+                                        ...cardData,
+                                        back: e.target.value
+                                    })}
                                 />
                             </div>
                             <div className='flex items-center'>
                                 <div>
                                     <Toast.Provider swipeDirection="right">
-                                        <button type="button" className="btn btn-primary" onClick={handleSave}>Salvar</button>
+                                        <button
+                                            type="button"
+                                            className="flex flex-row items-center bg-purple cursor-pointer p-2 rounded-sm font-bold"
+                                            onClick={handleSave}>
+                                            <CheckIcon className="mr-2" size={24}/>Salvar
+                                        </button>
 
                                         <Toast.Root
                                             className="ToastRoot"
@@ -108,16 +121,19 @@ export function FormDialog({
                                                 altText="Close this notification"
                                             >
                                                 <button className="Button">
-                                                    Ok
+                                                    OK
                                                 </button>
                                             </Toast.Action>
                                         </Toast.Root>
-                                        <Toast.Viewport className="ToastViewport" />
+                                        <Toast.Viewport className="ToastViewport"/>
                                     </Toast.Provider>
                                 </div>
-                                <div>
+                                <div className="ml-3">
                                     <Dialog.Close asChild>
-                                        <button type="button" className="btn" aria-label="Close">Cancelar</button>
+                                        <button
+                                            type="button"
+                                            className="bg-black font-bold text-white cursor-pointer p-2 rounded-sm font-bold"
+                                            aria-label="Close">Cancelar</button>
                                     </Dialog.Close>
                                 </div>
                             </div>

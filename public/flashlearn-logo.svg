@@ -2,18 +2,29 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="30.352892"
-   height="24.318531"
-   viewBox="0 0 8.0308686 6.434278"
+   width="111.31712"
+   height="24.418274"
+   viewBox="0 0 29.452653 6.4606683"
    version="1.1"
    id="svg1"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
      id="defs1" />
+  <text
+     xml:space="preserve"
+     style="font-size:5.51405px;font-family:Inter;-inkscape-font-specification:Inter;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#800080;stroke:#800080;stroke-width:0.15;stroke-dasharray:none;stroke-opacity:1"
+     x="8.777648"
+     y="6.3400426"
+     id="text1-5"
+     transform="rotate(-0.12589861)"><tspan
+       id="tspan1-4"
+       style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Gill Sans MT';-inkscape-font-specification:'Gill Sans MT Italic';fill:#800080;stroke:#800080;stroke-width:0.15;stroke-dasharray:none;stroke-opacity:1"
+       x="8.777648"
+       y="6.3400426">Flashlearn</tspan></text>
   <g
      id="layer1"
-     transform="translate(-19.246986,-23.332186)">
+     transform="translate(-19.246988,-23.332186)">
     <g
        id="g1"
        transform="matrix(0,0.26747897,-0.56748876,0,37.825883,17.035343)"

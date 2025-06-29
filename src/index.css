@@ -2,53 +2,42 @@
 
 @font-face {
   font-family: Lato;
-  src: url(../public/fonts/Inter-VariableFont_opsz\,wght.ttf);
-} 
-
-
-* {
-    box-sizing: border-box;
-    font-family: 'Lato';
-    outline: none;
+  src: url(../public/fonts/Inter.ttf);
 }
 
-:root {
-	--primary: purple;
+@font-face {
+	font-family: Lexend;
+	src: url(../public/fonts/Lexend.ttf);
 }
 
-/* Btn */
-
-.btn {
-    padding: 5px;
-    cursor: pointer;
-    border-radius: 2.5px;
+@theme {
+	--color-purple: #650065;
+	--color-dark-purple: #470647;
+	--color-black-soft: #1E1E1E;
+	--font-lexend: Lexend;
 }
 
-.btn-primary {
-  background: var(--primary);
-  color: #fff;
-}
-
-.btn-primary-none {
-  color: var(--primary);
-}
-
-.btn-primary-outline {
-  border: 1px solid var(--primary);
-  color: var(--primary);
+@layer base {
+	* {
+		box-sizing: border-box;
+		outline: none;
+	}
+	body {
+		background: var(--color-purple);
+	}
 }
 
 /* Dialog styling */
 
 .DialogOverlay {
-	background-color: #F7F7FF;
+	/*background-color: #F7F7FF;*/
 	position: fixed;
 	inset: 0;
 	animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .DialogContent {
-	background-color: var(--gray-1);
+	/*background-color: var(--gray-1);*/
 	border-radius: 6px;
 	box-shadow: var(--shadow-6);
 	position: fixed;
@@ -119,7 +108,7 @@
 }
 
 .ToastRoot {
-	background-color: white;
+	background-color: var(--color-dark-purple);
 	border-radius: 6px;
 	box-shadow:
 			hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
